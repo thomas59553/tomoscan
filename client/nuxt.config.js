@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
     /*
-  ** Headers of the page
+  ** Headers of the pagea
   */
     head: {
         title: 'TomoScan',
