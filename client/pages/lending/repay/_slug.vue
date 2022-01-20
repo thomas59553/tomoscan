@@ -79,7 +79,7 @@
                             <td>Lending token</td>
                             <td>
                                 <nuxt-link
-                                    v-if="lendingRepay.lendingToken !== tomoNativeToken"
+                                    v-if="lendingRepay.lendingToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingRepay.lendingToken.toLowerCase()}}">
                                     {{ lendingRepay.lendingToken.toLowerCase() }}</nuxt-link>
@@ -90,7 +90,7 @@
                             <td>Collateral token</td>
                             <td>
                                 <nuxt-link
-                                    v-if="lendingRepay.collateralToken !== tomoNativeToken"
+                                    v-if="lendingRepay.collateralToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingRepay.collateralToken.toLowerCase()}}">
                                     {{ lendingRepay.collateralToken.toLowerCase() }}</nuxt-link>
@@ -102,7 +102,7 @@
                             <td>
                                 {{ formatNumber(lendingRepay.quantity) }}
                                 <nuxt-link
-                                    v-if="lendingRepay.lendingToken !== tomoNativeToken"
+                                    v-if="lendingRepay.lendingToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingRepay.lendingToken.toLowerCase()}}">
                                     {{ lendingRepay.lendingSymbol }}</nuxt-link>
@@ -157,7 +157,7 @@ export default {
             hash: null,
             lendingRepay: {},
             loading: true,
-            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
+            wethioNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {

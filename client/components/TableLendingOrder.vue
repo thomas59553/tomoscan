@@ -132,7 +132,7 @@
                 slot="lendingToken"
                 slot-scope="props">
                 <nuxt-link
-                    v-if="props.item.lendingToken !== tomoNativeToken"
+                    v-if="props.item.lendingToken !== wethioNativeToken"
                     :to="{name: 'tokens-slug', params: {slug: props.item.lendingToken}}">
                     {{ hiddenString(props.item.lendingToken.toLowerCase(), 8) }}</nuxt-link>
                 <span v-else>ZYN</span>
@@ -141,7 +141,7 @@
                 slot="collateralToken"
                 slot-scope="props">
                 <nuxt-link
-                    v-if="props.item.collateralToken !== tomoNativeToken"
+                    v-if="props.item.collateralToken !== wethioNativeToken"
                     :to="{name: 'tokens-slug', params: {slug: props.item.collateralToken}}">
                     {{ hiddenString(props.item.collateralToken.toLowerCase(), 8) }}</nuxt-link>
                 <span v-else>ZYN</span>
@@ -151,7 +151,7 @@
                 slot-scope="props">
                 {{ formatNumber(props.item.quantity) }}
                 <nuxt-link
-                    v-if="props.item.lendingSymbol !== tomoNativeToken"
+                    v-if="props.item.lendingSymbol !== wethioNativeToken"
                     :to="{name: 'tokens-slug', params: {slug: props.item.lendingToken}}">
                     {{ props.item.lendingSymbol.toUpperCase() }}</nuxt-link>
                 <span v-else>ZYN</span>
@@ -239,7 +239,7 @@ export default {
         collateralToken: '',
         status: '',
         side: '',
-        tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
+        wethioNativeToken: process.env.WETHIO_NATIVE_TOKEN
     }),
     async created () {
         if (this.$route.query.user) {

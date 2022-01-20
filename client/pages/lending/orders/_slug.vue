@@ -96,7 +96,7 @@
                             <td>Lending token</td>
                             <td>
                                 <nuxt-link
-                                    v-if="lendingOrder.lendingToken !== tomoNativeToken"
+                                    v-if="lendingOrder.lendingToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingOrder.lendingToken.toLowerCase()}}">
                                     {{ lendingOrder.lendingToken.toLowerCase() }}</nuxt-link>
@@ -107,7 +107,7 @@
                             <td>Collateral token</td>
                             <td>
                                 <nuxt-link
-                                    v-if="lendingOrder.collateralToken !== tomoNativeToken"
+                                    v-if="lendingOrder.collateralToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingOrder.collateralToken.toLowerCase()}}">
                                     {{ lendingOrder.collateralToken.toLowerCase() }}</nuxt-link>
@@ -118,7 +118,7 @@
                             <td>Quantity</td>
                             <td>
                                 {{ formatNumber(lendingOrder.quantity) }}
-                                {{ lendingOrder.lendingSymbol !== tomoNativeToken ?
+                                {{ lendingOrder.lendingSymbol !== wethioNativeToken ?
                                     lendingOrder.lendingSymbol : 'ZYN' }}
                             </td>
                         </tr>
@@ -130,7 +130,7 @@
                             <td>Filled Amount</td>
                             <td>
                                 {{ formatNumber(lendingOrder.filledAmount) }}
-                                {{ lendingOrder.lendingSymbol !== tomoNativeToken ?
+                                {{ lendingOrder.lendingSymbol !== wethioNativeToken ?
                                     lendingOrder.lendingSymbol : 'ZYN' }}
                             </td>
                         </tr>
@@ -191,7 +191,7 @@ export default {
             hash: null,
             lendingOrder: {},
             loading: true,
-            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
+            wethioNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {

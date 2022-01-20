@@ -87,13 +87,13 @@
                             <td>
                                 <span>
                                     <nuxt-link
-                                        v-if="order.baseToken !== tomoNativeToken"
+                                        v-if="order.baseToken !== wethioNativeToken"
                                         :to="{name: 'tokens-slug',
                                               params: {slug: order.baseToken}}">
                                         {{ order.baseSymbol }}</nuxt-link>
                                     <span v-else>
                                         {{ order.baseSymbol }}</span>/<nuxt-link
-                                        v-if="order.quoteToken !== tomoNativeToken"
+                                        v-if="order.quoteToken !== wethioNativeToken"
                                         :to="{name: 'tokens-slug',
                                               params: {slug: order.quoteToken}}">
                                         {{ order.quoteSymbol }}</nuxt-link>
@@ -169,7 +169,7 @@ export default {
             order: {},
             loading: true,
             avgPrice: 'N/A',
-            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
+            wethioNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {

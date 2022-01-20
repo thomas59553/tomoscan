@@ -97,11 +97,11 @@
                 slot-scope="props">
                 <span>
                     <nuxt-link
-                        v-if="props.item.baseToken !== tomoNativeToken"
+                        v-if="props.item.baseToken !== wethioNativeToken"
                         :to="{name: 'tokens-slug', params: {slug: props.item.baseToken}}">
                         {{ props.item.baseSymbol }}</nuxt-link>
                     <span v-else>{{ props.item.baseSymbol }}</span>/<nuxt-link
-                        v-if="props.item.quoteToken !== tomoNativeToken"
+                        v-if="props.item.quoteToken !== wethioNativeToken"
                         :to="{name: 'tokens-slug', params: {slug: props.item.quoteToken}}">
                         {{ props.item.quoteSymbol }}</nuxt-link>
                     <span v-else>{{ props.item.quoteSymbol }}</span>
@@ -200,7 +200,7 @@ export default {
         baseToken: '',
         quoteToken: '',
         relayerAddress: '',
-        tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
+        wethioNativeToken: process.env.WETHIO_NATIVE_TOKEN
     }),
     async created () {
         if (this.$route.query.user) {

@@ -68,7 +68,7 @@
                                 <p v-if="lendingTrade.liquidated.recallAmount">
                                     Recall Amount: {{ lendingTrade.liquidated.recallAmount }}
                                     <nuxt-link
-                                        v-if="lendingTrade.collateralToken !== tomoNativeToken"
+                                        v-if="lendingTrade.collateralToken !== wethioNativeToken"
                                         :to="{
                                             name: 'tokens-slug',
                                             params: {slug: lendingTrade.collateralToken.toLowerCase()}}">
@@ -77,7 +77,7 @@
                                 <p v-if="lendingTrade.liquidated.liquidationAmount">
                                     Liquidation Amount: {{ lendingTrade.liquidated.liquidationAmount }}
                                     <nuxt-link
-                                        v-if="lendingTrade.collateralToken !== tomoNativeToken"
+                                        v-if="lendingTrade.collateralToken !== wethioNativeToken"
                                         :to="{
                                             name: 'tokens-slug',
                                             params: {slug: lendingTrade.collateralToken.toLowerCase()}}">
@@ -86,7 +86,7 @@
                                 <p v-if="lendingTrade.liquidated.collateralPrice">
                                     Collateral Price: {{ lendingTrade.liquidated.collateralPrice }}
                                     <nuxt-link
-                                        v-if="lendingTrade.lendingToken !== tomoNativeToken"
+                                        v-if="lendingTrade.lendingToken !== wethioNativeToken"
                                         :to="{
                                             name: 'tokens-slug',
                                             params: {slug: lendingTrade.lendingToken.toLowerCase()}}">
@@ -142,7 +142,7 @@
                             <td>
                                 {{ formatNumber(lendingTrade.amount) }}
                                 <nuxt-link
-                                    v-if="lendingTrade.lendingToken !== tomoNativeToken"
+                                    v-if="lendingTrade.lendingToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingTrade.lendingToken.toLowerCase()}}">
                                     {{ lendingTrade.lendingSymbol }}</nuxt-link>
@@ -150,7 +150,7 @@
                                 (Borrower Fee:
                                 {{ formatNumber(lendingTrade.borrowingFee) }}
                                 <nuxt-link
-                                    v-if="lendingTrade.lendingToken !== tomoNativeToken"
+                                    v-if="lendingTrade.lendingToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingTrade.lendingToken.toLowerCase()}}">
                                     {{ lendingTrade.lendingSymbol }}</nuxt-link>
@@ -166,14 +166,14 @@
                             <td>
                                 {{ formatNumber(lendingTrade.collateralLockedAmount) }}
                                 <nuxt-link
-                                    v-if="lendingTrade.collateralToken !== tomoNativeToken"
+                                    v-if="lendingTrade.collateralToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingTrade.collateralToken.toLowerCase()}}">
                                     {{ lendingTrade.collateralSymbol }}</nuxt-link>
                                 <span v-else>ZYN</span>
                                 (Price: {{ lendingTrade.collateralPrice }}
                                 <nuxt-link
-                                    v-if="lendingTrade.lendingToken !== tomoNativeToken"
+                                    v-if="lendingTrade.lendingToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingTrade.lendingToken.toLowerCase()}}">
                                     {{ lendingTrade.lendingSymbol }}</nuxt-link>
@@ -267,7 +267,7 @@ export default {
             hash: null,
             lendingTrade: {},
             loading: true,
-            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
+            wethioNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {

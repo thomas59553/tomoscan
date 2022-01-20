@@ -78,7 +78,7 @@
                             <td>Lending token</td>
                             <td>
                                 <nuxt-link
-                                    v-if="lendingTopup.lendingToken !== tomoNativeToken"
+                                    v-if="lendingTopup.lendingToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingTopup.lendingToken.toLowerCase()}}">
                                     {{ lendingTopup.lendingToken.toLowerCase() }}</nuxt-link>
@@ -89,7 +89,7 @@
                             <td>Collateral token</td>
                             <td>
                                 <nuxt-link
-                                    v-if="lendingTopup.collateralToken !== tomoNativeToken"
+                                    v-if="lendingTopup.collateralToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingTopup.collateralToken.toLowerCase()}}">
                                     {{ lendingTopup.collateralToken.toLowerCase() }}</nuxt-link>
@@ -101,7 +101,7 @@
                             <td>
                                 {{ formatNumber(lendingTopup.quantity) }}
                                 <nuxt-link
-                                    v-if="lendingTopup.collateralToken !== tomoNativeToken"
+                                    v-if="lendingTopup.collateralToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingTopup.collateralToken}}">
                                     {{ lendingTopup.collateralSymbol.toUpperCase() }}</nuxt-link>
@@ -141,7 +141,7 @@ export default {
             hash: null,
             lendingTopup: {},
             loading: true,
-            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
+            wethioNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {

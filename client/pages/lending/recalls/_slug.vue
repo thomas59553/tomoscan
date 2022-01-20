@@ -78,7 +78,7 @@
                             <td>Lending token</td>
                             <td>
                                 <nuxt-link
-                                    v-if="lendingRecall.lendingToken !== tomoNativeToken"
+                                    v-if="lendingRecall.lendingToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingRecall.lendingToken.toLowerCase()}}">
                                     {{ lendingRecall.lendingToken.toLowerCase() }}</nuxt-link>
@@ -89,7 +89,7 @@
                             <td>Collateral token</td>
                             <td>
                                 <nuxt-link
-                                    v-if="lendingRecall.collateralToken !== tomoNativeToken"
+                                    v-if="lendingRecall.collateralToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingRecall.collateralToken.toLowerCase()}}">
                                     {{ lendingRecall.collateralToken.toLowerCase() }}</nuxt-link>
@@ -101,7 +101,7 @@
                             <td>
                                 {{ formatNumber(lendingRecall.quantity) }}
                                 <nuxt-link
-                                    v-if="lendingRecall.collateralToken !== tomoNativeToken"
+                                    v-if="lendingRecall.collateralToken !== wethioNativeToken"
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingRecall.collateralToken}}">
                                     {{ lendingRecall.collateralSymbol.toUpperCase() }}</nuxt-link>
@@ -141,7 +141,7 @@ export default {
             hash: null,
             lendingRecall: {},
             loading: true,
-            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
+            wethioNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {
