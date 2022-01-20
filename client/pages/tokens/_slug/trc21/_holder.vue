@@ -12,15 +12,10 @@
                         width="35px">
                     {{ tokenName }}&nbsp;</h2>
                 <i
-                    v-if="isVerified"
+                    v-if="moreInfo"
                     class="fa fa-check-circle token-status"
                     aria-hidden="true"/>
-                <h6 class="mb-0">
-                    <span class="symbol">{{ symbol }}</span>
-                    <span
-                        v-if="token.isWrappedToken"
-                        class="wrapped-erc20">Wrapped ERC-20</span>
-                </h6>
+                <h6 class="mb-0">{{ symbol }}</h6>
             </div>
             <div class="tomo-card__body">
                 <b-row>
@@ -198,7 +193,6 @@ export default {
             addressFilter: null,
             address: null,
             smartContract: null,
-            isVerified: false,
             holderBalance: 0,
             tokenBranch: process.env.TOKEN_BRANCH
         }
@@ -225,7 +219,6 @@ export default {
 
         self.loading = false
         self.moreInfo = data.moreInfo
-        self.isVerified = data.isVerified
 
         self.holderBalance = await self.getTokenHolder(self.hash, self.holder)
         self.getAccountFromApi()

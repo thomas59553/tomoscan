@@ -5,7 +5,7 @@ const client = new Client({ node: config.get('ELASTICSEARCH') })
 
 const ElasticHelper = {
     index: async (id, index, body) => {
-        return await client.index({
+        await client.index({
             id: id,
             index: index,
             opType: 'index',
@@ -13,14 +13,14 @@ const ElasticHelper = {
         })
     },
     indexWithoutId: async (index, body) => {
-        return await client.index({
+        await client.index({
             index: index,
             opType: 'index',
             body: body
         })
     },
     deleteByQuery: async (index, query) => {
-        return await client.deleteByQuery({
+        return client.deleteByQuery({
             index: index,
             body: { query: query }
         })
@@ -36,6 +36,7 @@ const ElasticHelper = {
                     from: (page - 1) * limit
                 }
             })
+            // })
             return body
         } else {
             const { body } = await client.search({

@@ -70,7 +70,7 @@ const DexHelper = {
             orders[i].price = price
             orders[i].filledAmount = fillAmount
             orders[i].quantity = quantity
-            if (orders[i].status === 'CANCELLED' && orders[i].extraData !== '') {
+            if (orders[i].status === 'CANCELLED') {
                 const extraData = JSON.parse(orders[i].extraData)
                 if (Object.prototype.hasOwnProperty.call(extraData, 'CancelFee')) {
                     let cancelFee = new BigNumber(extraData.CancelFee)

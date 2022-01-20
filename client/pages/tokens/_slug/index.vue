@@ -15,15 +15,7 @@
                     v-if="isVerified"
                     class="fa fa-check-circle token-status"
                     aria-hidden="true"/>
-                <h6 class="mb-0">
-                    <span class="symbol">{{ symbol }}</span>
-                    <span
-                        v-if="token.isWrappedToken"
-                        class="wrapped-erc20">Wrapped ERC-20</span>
-                    <span
-                        v-if="token.type === 'trc20' || token.type === 'trc21'"
-                        class="wrapped-erc20">{{ token.type.toUpperCase() }}</span>
-                </h6>
+                <h6 class="mb-0">{{ symbol }}</h6>
             </div>
             <div class="tomo-card__body">
                 <div
@@ -289,18 +281,20 @@ export default {
             }
 
             params.list = 'token'
+            const query = this.serializeQuery(params)
 
             const responses = await Promise.all([
-                self.$axios.get('/api/tokens/' + self.hash)
+                self.$axios.get('/api/tokens/' + self.hash),
+                self.$axios.get('/api/counting' + '?' + query)
             ])
 
             self.token = responses[0].data
             self.tokenName = responses[0].data.name
             self.symbol = responses[0].data.symbol
 
-            self.tokenTxsCount = responses[0].data.transferCount
+            self.tokenTxsCount = responses[1].data.tokenTxs
 
-            self.holdersCount = responses[0].data.holderCount
+            self.holdersCount = responses[1].data.tokenHolders
 
             self.loading = false
             self.isVerified = responses[0].data.isVerified

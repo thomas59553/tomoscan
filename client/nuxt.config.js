@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
     /*
-  ** Headers of the pagea
+  ** Headers of the page
   */
     head: {
         title: 'TomoScan',
@@ -64,7 +64,6 @@ module.exports = {
         ]
     },
     plugins: [
-        { src : '~/plugins/apexchart', ssr : false },
         '~/plugins/axios',
         '~/plugins/vuelidate',
         '~/plugins/bootstrap-vue',

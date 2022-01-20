@@ -5,7 +5,7 @@ const logger = require('../helpers/logger')
 const axios = require('axios')
 const config = require('config')
 const Web3Util = require('../helpers/web3')
-const Queue = require('../queues')
+const q = require('../queues')
 const consumer = {}
 consumer.name = 'BlockFinalityProcess'
 consumer.processNumber = 1
@@ -18,7 +18,9 @@ consumer.task = async function (job, done) {
         const map = blocks.map(async function (block) {
             const countTx = await db.Tx.countDocuments({ blockNumber: block.number })
             if (countTx !== block.e_tx) {
-                Queue.newQueue('BlockProcess', { block: block.number })
+                q.create('BlockProcess', { block: block.number })
+                    .priority('high').removeOnComplete(true)
+                    .attempts(5).backoff({ delay: 2000, type: 'fixed' }).save()
             }
             const blockOnChain = await web3.eth.getBlock(block.number)
             if (block.hash === blockOnChain.hash) {
@@ -55,14 +57,16 @@ consumer.task = async function (job, done) {
                 await db.TokenTrc21Tx.deleteMany({ blockHash: block.hash })
                 await db.TokenTx.deleteMany({ blockHash: block.hash })
 
-                Queue.newQueue('BlockProcess', { block: block.number })
+                q.create('BlockProcess', { block: block.number })
+                    .priority('high').removeOnComplete(true)
+                    .attempts(5).backoff({ delay: 2000, type: 'fixed' }).save()
             }
         })
         await Promise.all(map)
-        return true
+        return done()
     } catch (e) {
         logger.warn(e)
-        return false
+        return done(e)
     }
 }
 

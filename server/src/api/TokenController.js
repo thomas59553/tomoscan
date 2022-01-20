@@ -6,7 +6,6 @@ const TokenHelper = require('../helpers/token')
 const logger = require('../helpers/logger')
 const axios = require('axios')
 const Web3Util = require('../helpers/web3')
-const elastic = require('../helpers/elastic')
 const { check, validationResult, query } = require('express-validator/check')
 
 const TokenController = Router()
@@ -82,7 +81,7 @@ TokenController.get('/tokens/:slug', [
     }
     const hash = req.params.slug.toLowerCase()
     try {
-        let token = await TokenHelper.updateTokenInfo(hash)
+        let token = await db.Token.findOne({ hash: hash }).lean()
         if (!token) {
             return res.status(404).json({ errors: { message: 'Token was not found' } })
         }
@@ -102,18 +101,6 @@ TokenController.get('/tokens/:slug', [
         } else {
             token.isVerified = false
         }
-        const coinList = ['0xae44807d8a9ce4b30146437474ed6faaafa1b809', '0x2eaa73bd0db20c64f53febea7b5f5e5bccc7fb8b']
-        if (!coinList.includes(hash)) {
-            const bridgeUrl = 'https://raw.githubusercontent.com/tomochain/tokens/master/bridge.json'
-            const bridgeList = await axios.get(bridgeUrl)
-            if (bridgeList.data.includes(hash)) {
-                token.isWrappedToken = true
-            } else {
-                token.isWrappedToken = false
-            }
-        } else {
-            token.isWrappedToken = false
-        }
 
         try {
             const moreInfoUrl = `https://raw.githubusercontent.com/tomochain/tokens/master/tokens/${hash}.json`
@@ -122,21 +109,7 @@ TokenController.get('/tokens/:slug', [
         } catch (e) {
             logger.warn('Token is not verify')
         }
-        let holderCount = 0
-        let transferCount = 0
-        if (token.type === 'trc21') {
-            holderCount = await db.TokenTrc21Holder.count({ token: hash })
-            transferCount = await db.TokenTrc21Tx.count({ address: hash })
-        } else if (token.type === 'trc20') {
-            holderCount = await db.TokenHolder.count({ token: hash })
-            transferCount = await db.TokenTx.count({ address: hash })
-        } else if (token.type === 'trc721') {
-            holderCount = await db.TokenNftHolder.count({ token: hash })
-            transferCount = await db.TokenNftTx.count({ address: hash })
-        }
 
-        token.holderCount = holderCount
-        token.transferCount = transferCount
         res.json(token)
     } catch (e) {
         logger.warn('Get token %s detail error %s', hash, e)

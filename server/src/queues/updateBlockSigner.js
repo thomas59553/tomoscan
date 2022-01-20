@@ -10,8 +10,8 @@ const consumer = {}
 consumer.name = 'BlockSignerProcess'
 consumer.processNumber = 1
 
-consumer.task = async function (job) {
-    const blockNumber = parseInt(job.block)
+consumer.task = async function (job, done) {
+    const blockNumber = parseInt(job.data.block)
     let block = await db.Block.findOne({ number: blockNumber })
     if (!block) {
         block = await BlockHelper.getBlock(blockNumber)
@@ -52,10 +52,10 @@ consumer.task = async function (job) {
             }
         } catch (e) {
             logger.warn('Failed BlockSignerProcess %s', e)
-            return false
+            return done(e)
         }
     }
-    return true
+    return done()
 }
 
 module.exports = consumer
