@@ -1,5 +1,5 @@
 <template>
-    <table class="tomo-table">
+    <table class="wethio-table">
         <thead>
             <tr>
                 <th

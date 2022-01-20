@@ -31,7 +31,7 @@ SettingController.get('/setting', async (req, res) => {
 
 SettingController.get('/setting/usd', async (req, res) => {
     try {
-        const cache = await redisHelper.get('tomo-price')
+        const cache = await redisHelper.get('wethio-price')
         if (cache !== null) {
             const r = JSON.parse(cache)
             logger.info('load tomo price from cache')
@@ -42,7 +42,7 @@ SettingController.get('/setting/usd', async (req, res) => {
         const { data } = await axios.get(url, { timeout: 5000 })
 
         tomoUsd = data
-        await redisHelper.set('tomo-price', JSON.stringify(data), 10 * 60)
+        await redisHelper.set('wethio-price', JSON.stringify(data), 10 * 60)
     } catch (e) {
         logger.warn(e)
     }

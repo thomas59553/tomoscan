@@ -1,13 +1,13 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
-        <div class="card tomo-card tomo-card--address">
-            <div class="tomo-card__header">
+        <div class="card wethio-card wethio-card--address">
+            <div class="wethio-card__header">
                 <h3
-                    :class="`tomo-card__headline
-                    ${(address && address.isContract ? ' tomo-card__headline--is-contract' : '')}`">
+                    :class="`wethio-card__headline
+                    ${(address && address.isContract ? ' wethio-card__headline--is-contract' : '')}`">
                     <span v-if="address && address.isContract">Contract: </span>
                     <read-more
                         :text="address.hash"
@@ -23,8 +23,8 @@
                     <span class="d-none d-xl-inline-block">{{ address.hash }}</span>
                 </h3>
             </div>
-            <div class="tomo-card__body">
-                <table class="tomo-card__table">
+            <div class="wethio-card__body">
+                <table class="wethio-card__table">
                     <tbody>
                         <tr v-if="address.accountName">
                             <td>Account Name</td>
@@ -114,7 +114,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="text-center text-lg-right tomo-qrcode">
+                <div class="text-center text-lg-right wethio-qrcode">
                     <div class="text-center">
                         <button
                             v-clipboard="address.hash"
@@ -137,7 +137,7 @@
         <b-tabs
             ref="allTabs"
             v-model="tabIndex"
-            class="tomo-tabs">
+            class="wethio-tabs">
             <b-tab
                 id="transactions"
                 title="Transactions"
@@ -160,25 +160,25 @@
             </b-tab>
             <b-tab
                 v-if="address && address.hasTrc20"
-                id="trc20Holding"
+                id="zrc20Holding"
                 lazy
-                title="TRC20 Holding"
-                href="#trc20Holding">
+                title="ZRC20 Holding"
+                href="#zrc20Holding">
                 <table-tokens-by-account
                     :holder="hash"
-                    :token-type="'trc20'"
-                    :parent="'trc20Holding'"
+                    :token-type="'zrc20'"
+                    :parent="'zrc20Holding'"
                     :page="this"/>
             </b-tab>
             <b-tab
-                id="trc21Holding"
+                id="zrc21Holding"
                 lazy
-                title="TRC21 Holding"
-                href="#trc21Holding">
+                title="ZRC21 Holding"
+                href="#zrc21Holding">
                 <table-tokens-by-account
                     :holder="hash"
-                    :token-type="'trc21'"
-                    :parent="'trc21Holding'"
+                    :token-type="'zrc21'"
+                    :parent="'zrc21Holding'"
                     :page="this"/>
             </b-tab>
             <b-tab

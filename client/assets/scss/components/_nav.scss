@@ -14,7 +14,7 @@ body.dark-mode {
     display: none !important;
   }
 }
-.tomo-nav {
+.wethio-nav {
   transition: all .5s ease;
 
   &__logo {
@@ -45,7 +45,7 @@ body.dark-mode {
     }
   }
 
-  .tomo-nav__login {
+  .wethio-nav__login {
 
     .nav-link {
       color: #000;
@@ -136,7 +136,7 @@ body.dark-mode {
       transform-origin: 0% 50%;
     }
 
-    .tomo-nav__login {
+    .wethio-nav__login {
 
       .dropdown-menu,
       .dropdown-item {
@@ -161,7 +161,7 @@ body.dark-mode {
       margin: 0 20px;
     }
 
-    .tomo-nav__login .nav-item .nav-link {
+    .wethio-nav__login .nav-item .nav-link {
       margin: 0;
     }
   }

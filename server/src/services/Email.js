@@ -44,7 +44,7 @@ class EmailService {
         const body = format(stringTemplate, params)
         const msg = {
             to: 'khaihkd@gmail.com',
-            from: 'admin@tomochain.com',
+            from: 'admin@wethio.io',
             subject: subject,
             html: body
         }

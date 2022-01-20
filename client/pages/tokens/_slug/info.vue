@@ -1,14 +1,14 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
-        <div class="card tomo-card tomo-card--token">
-            <div class="tomo-card__header">
-                <h2 class="tomo-card__headline">{{ tokenName }}&nbsp;</h2>
+        <div class="card wethio-card wethio-card--token">
+            <div class="wethio-card__header">
+                <h2 class="wethio-card__headline">{{ tokenName }}&nbsp;</h2>
                 <h6 class="mb-0">{{ symbol }}</h6>
             </div>
-            <div class="tomo-card__body">
+            <div class="wethio-card__body">
                 <ul
                     v-if="errors.length"
                     class="alert alert-danger">
@@ -22,7 +22,7 @@
                         :page="this"/>
                     <table
                         v-if="authen"
-                        class="tomo-card__table">
+                        class="wethio-card__table">
                         <tbody>
                             <tr>
                                 <td>Contract</td>

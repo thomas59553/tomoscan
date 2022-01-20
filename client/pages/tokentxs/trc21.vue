@@ -1,6 +1,6 @@
 <template>
     <section>
-        <table-token-tx-trc21/>
+        <table-token-tx-zrc21/>
     </section>
 </template>
 
@@ -13,11 +13,11 @@ export default {
     },
     async mounted () {
         // Init breadcrumbs data.
-        this.$store.commit('breadcrumb/setItems', { name: 'tokentxs-trc21', to: { name: 'tokentxs-trc21' } })
+        this.$store.commit('breadcrumb/setItems', { name: 'tokentxs-zrc21', to: { name: 'tokentxs-zrc21' } })
     },
     head () {
         return {
-            title: 'Token TRC21 Transfers'
+            title: 'Token ZRC21 Transfers'
         }
     }
 }

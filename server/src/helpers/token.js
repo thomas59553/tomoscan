@@ -58,7 +58,7 @@ const TokenHelper = {
     }),
 
     checkTokenType: async (code) => {
-        const trc20Function = {
+        const zrc20Function = {
             totalSupply: '0x18160ddd',
             balanceOf: '0x70a08231',
             allowance: '0xdd62ed3e',
@@ -87,7 +87,7 @@ const TokenHelper = {
             supportsInterface: '0x01ffc9a7',
             totalSupply: '0x18160ddd'
         }
-        const trc21Function = {
+        const zrc21Function = {
             totalSupply: '0x18160ddd',
             balanceOf: '0x70a08231',
             estimateFee: '0x127e8e4d',
@@ -106,8 +106,8 @@ const TokenHelper = {
         }
 
         let isTrc21 = true
-        for (const trc21 in trc21Function) {
-            let codeCheck = trc21Function[trc21]
+        for (const zrc21 in zrc21Function) {
+            let codeCheck = zrc21Function[zrc21]
             codeCheck = codeCheck.replace('0x', '')
             if (code.indexOf(codeCheck) < 0) {
                 isTrc21 = false
@@ -115,12 +115,12 @@ const TokenHelper = {
             }
         }
         if (isTrc21) {
-            return 'trc21'
+            return 'zrc21'
         }
 
         let isTrc20 = true
-        for (const trc20 in trc20Function) {
-            let codeCheck = trc20Function[trc20]
+        for (const zrc20 in zrc20Function) {
+            let codeCheck = zrc20Function[zrc20]
             codeCheck = codeCheck.replace('0x', '')
             if (code.indexOf(codeCheck) < 0) {
                 isTrc20 = false
@@ -128,7 +128,7 @@ const TokenHelper = {
             }
         }
         if (isTrc20) {
-            return 'trc20'
+            return 'zrc20'
         }
 
         let isTrc721 = true

@@ -1,37 +1,37 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
         <div
             v-if="total == 0"
-            class="tomo-empty">
-            <i class="fa fa-exchange tomo-empty__icon"/>
-            <p class="tomo-empty__description">No token found</p>
+            class="wethio-empty">
+            <i class="fa fa-exchange wethio-empty__icon"/>
+            <p class="wethio-empty__description">No token found</p>
         </div>
 
         <p
             v-if="total > 0"
-            class="tomo-total-items">{{ _nFormatNumber('token', 'tokens', total) }}</p>
+            class="wethio-total-items">{{ _nFormatNumber('token', 'tokens', total) }}</p>
 
         <table-base
             v-if="total > 0"
             :fields="fields"
             :items="items"
-            class="tomo-table--tokens-by-account">
+            class="wethio-table--tokens-by-account">
 
             <template
                 slot="hash"
                 slot-scope="props">
                 <nuxt-link
-                    v-if="tokenType === 'trc20'"
+                    v-if="tokenType === 'zrc20'"
                     :class="props.item.tokenObj ? '' : 'text-truncate'"
-                    :to="{name: 'tokens-slug-trc20-holder', params: {slug: props.item.token, holder: holder}}">
+                    :to="{name: 'tokens-slug-zrc20-holder', params: {slug: props.item.token, holder: holder}}">
                     {{ props.item.tokenObj ? props.item.tokenObj.name : props.item.token }}</nuxt-link>
                 <nuxt-link
-                    v-if="tokenType === 'trc21'"
+                    v-if="tokenType === 'zrc21'"
                     :class="props.item.tokenObj ? '' : 'text-truncate'"
-                    :to="{name: 'tokens-slug-trc21-holder', params: {slug: props.item.token, holder: holder}}">
+                    :to="{name: 'tokens-slug-zrc21-holder', params: {slug: props.item.token, holder: holder}}">
                     {{ props.item.tokenObj ? props.item.tokenObj.name : props.item.token }}</nuxt-link>
                 <nuxt-link
                     v-if="tokenType === 'trc721'"
@@ -44,7 +44,7 @@
                 slot="quantity"
                 slot-scope="props">
                 <span
-                    v-if="tokenType === 'trc20' || tokenType === 'trc21'">
+                    v-if="tokenType === 'zrc20' || tokenType === 'zrc21'">
                     {{ formatUnit(toTokenQuantity(props.item.quantity, props.item.tokenObj.decimals),
                                   props.item.tokenObj.symbol) }}</span>
                 <span
@@ -62,7 +62,7 @@
             :number-of-pages="pages"
             :limit="7"
             align="center"
-            class="tomo-pagination"
+            class="wethio-pagination"
             @change="onChangePaginate"/>
     </section>
 </template>

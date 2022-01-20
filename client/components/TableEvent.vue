@@ -1,25 +1,25 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
 
         <div
             v-if="total == 0"
-            class="tomo-empty">
-            <i class="fa fa-binoculars tomo-empty__icon"/>
-            <p class="tomo-empty__description">No event found</p>
+            class="wethio-empty">
+            <i class="fa fa-binoculars wethio-empty__icon"/>
+            <p class="wethio-empty__description">No event found</p>
         </div>
 
         <p
             v-if="total > 0"
-            class="tomo-total-items">{{ _nFormatNumber('item', 'items', total) }}</p>
+            class="wethio-total-items">{{ _nFormatNumber('item', 'items', total) }}</p>
 
         <table-base
             v-if="total > 0"
             :fields="fields"
             :items="items"
-            class="tomo-table--events">
+            class="wethio-table--events">
 
             <template
                 slot="label"
@@ -156,7 +156,7 @@
             :number-of-pages="pages"
             :limit="7"
             align="center"
-            class="tomo-pagination"
+            class="wethio-pagination"
             @change="onChangePaginate"/>
     </section>
 </template>

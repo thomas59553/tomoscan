@@ -11,7 +11,7 @@
                         {key: 'Contract Name', value: smartContract.contractName},
                         {key: 'Compiler Version', value: smartContract.compiler},
                     ]"
-                    class="tomo-table tomo-table--verified-contract"
+                    class="wethio-table wethio-table--verified-contract"
                     thead-class="d-none"/>
             </b-col>
 
@@ -24,7 +24,7 @@
                             value: smartContract.optimization ? 'Yes' : 'No'
                         },
                     ]"
-                    class="tomo-table tomo-table--verified-contract"
+                    class="wethio-table wethio-table--verified-contract"
                     thead-class="d-none"/>
             </b-col>
         </b-row>

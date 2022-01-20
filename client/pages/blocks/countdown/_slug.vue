@@ -1,9 +1,9 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
-        <div class="card tomo-card tomo-card--block">
+        <div class="card wethio-card wethio-card--block">
             <div class="row align-items-center">
                 <div class="col-lg-5 mb-5 mb-lg-0">
                     <img

@@ -1,13 +1,13 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
-        <div class="card tomo-card tomo-card--block">
-            <div class="tomo-card__header">
+        <div class="card wethio-card wethio-card--block">
+            <div class="wethio-card__header">
                 <h3
                     v-if="epoch"
-                    class="tomo-card__headline">Epoch
+                    class="wethio-card__headline">Epoch
                     <span class="d-none d-lg-inline-block headline__block-block">#{{ epochNumber }}</span>
                 </h3>
                 <div
@@ -30,10 +30,10 @@
                     </div>
                 </div>
             </div>
-            <div class="tomo-card__body">
+            <div class="wethio-card__body">
                 <table
                     v-if="epoch"
-                    class="tomo-card__table">
+                    class="wethio-card__table">
                     <tbody>
                         <tr>
                             <td>Epoch</td>
@@ -92,7 +92,7 @@
         <b-tabs
             ref="allTabs"
             v-model="tabIndex"
-            class="tomo-tabs"
+            class="wethio-tabs"
             @input="onSwitchTab">
             <!--:title="'Reward Voter (' + formatNumber(voterCount) + ')'"-->
             <b-tab
@@ -125,17 +125,17 @@
 
                 <div
                     v-if="epoch.slashedNode.length === 0"
-                    class="tomo-empty">
-                    <i class="fa fa-cube tomo-empty__icon"/>
-                    <p class="tomo-empty__description">No slashed node</p>
+                    class="wethio-empty">
+                    <i class="fa fa-cube wethio-empty__icon"/>
+                    <p class="wethio-empty__description">No slashed node</p>
                 </div>
 
                 <p
                     v-if="epoch.slashedNode.length > 0"
-                    class="tomo-total-items">{{ _nFormatNumber('node', 'nodes', epoch.slashedNode.length) }}</p>
+                    class="wethio-total-items">{{ _nFormatNumber('node', 'nodes', epoch.slashedNode.length) }}</p>
                 <table
                     v-if="epoch.slashedNode.length > 0"
-                    class="tomo-table">
+                    class="wethio-table">
                     <thead>
                         <tr><th>Coinbase</th></tr>
                     </thead>

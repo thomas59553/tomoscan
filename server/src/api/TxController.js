@@ -603,16 +603,16 @@ TxController.get(['/txs/:slug', '/tx/:slug'], [
         }
         tx.to_model = toModel
 
-        let trc20Txs = await db.TokenTx.find({ transactionHash: tx.hash }).maxTimeMS(20000)
-        trc20Txs = await TokenTransactionHelper.formatTokenTransaction(trc20Txs)
-        tx.trc20Txs = trc20Txs
+        let zrc20Txs = await db.TokenTx.find({ transactionHash: tx.hash }).maxTimeMS(20000)
+        zrc20Txs = await TokenTransactionHelper.formatTokenTransaction(zrc20Txs)
+        tx.zrc20Txs = zrc20Txs
 
-        let trc21Txs = await db.TokenTrc21Tx.find({ transactionHash: tx.hash }).maxTimeMS(20000)
-        trc21Txs = await TokenTransactionHelper.formatTokenTransaction(trc21Txs)
-        tx.trc21Txs = trc21Txs
+        let zrc21Txs = await db.TokenTrc21Tx.find({ transactionHash: tx.hash }).maxTimeMS(20000)
+        zrc21Txs = await TokenTransactionHelper.formatTokenTransaction(zrc21Txs)
+        tx.zrc21Txs = zrc21Txs
 
-        let trc21FeeFund = -1
-        if (trc21Txs.length > 0) {
+        let zrc21FeeFund = -1
+        if (zrc21Txs.length > 0) {
             try {
                 const web3 = await await Web3Util.getWeb3()
                 const contract = new web3.eth.Contract(TomoIssuer, config.get('TOMOISSUER'))
@@ -625,15 +625,15 @@ TxController.get(['/txs/:slug', '/tx/:slug'], [
                     }
                 }
                 if (isRegisterOnTomoIssuer) {
-                    trc21FeeFund = await contract.methods.getTokenCapacity(tx.to).call()
+                    zrc21FeeFund = await contract.methods.getTokenCapacity(tx.to).call()
                 } else {
-                    trc21FeeFund = -1
+                    zrc21FeeFund = -1
                 }
             } catch (e) {
                 logger.warn(e)
             }
         }
-        tx.trc21FeeFund = trc21FeeFund
+        tx.zrc21FeeFund = zrc21FeeFund
 
         let trc721Txs = await db.TokenNftTx.find({ transactionHash: tx.hash }).maxTimeMS(20000)
         trc721Txs = await TokenTransactionHelper.formatTokenTransaction(trc721Txs)
@@ -838,13 +838,13 @@ TxController.get('/txs/combine/:address', [
             blockNumber: { $lte: blockNumber }
         }).sort({ blockNumber: -1 }).limit(limit * page).lean().exec() || []
 
-        // get token trc20 tx by account
+        // get token zrc20 tx by account
         const token20Txs1 = db.TokenTx.find({
             $or: [{ to: address }, { from: address }],
             blockNumber: { $lte: blockNumber }
         }).sort({ blockNumber: -1 }).limit(limit * page).lean().exec() || []
 
-        // get token trc21 tx by account
+        // get token zrc21 tx by account
         const token21Txs1 = db.TokenTrc21Tx.find({
             $or: [{ to: address }, { from: address }],
             blockNumber: { $lte: blockNumber }
@@ -865,11 +865,11 @@ TxController.get('/txs/combine/:address', [
                 return tx
             }),
             (await token20Txs1).map(tx => {
-                tx.txType = 'trc20Tx'
+                tx.txType = 'zrc20Tx'
                 return tx
             }),
             (await token21Txs1).map(tx => {
-                tx.txType = 'trc21Tx'
+                tx.txType = 'zrc21Tx'
                 return tx
             }),
             (await token721Txs1).map(tx => {

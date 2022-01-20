@@ -17,7 +17,7 @@ export default {
     },
     head () {
         return {
-            title: 'Token (TRC20) Transfers'
+            title: 'Token (ZRC20) Transfers'
         }
     }
 }

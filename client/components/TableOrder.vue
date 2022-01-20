@@ -1,11 +1,11 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
         <p
             v-if="total > 0"
-            class="tomo-total-items">{{ _nFormatNumber('order', 'orders', total) }}</p>
+            class="wethio-total-items">{{ _nFormatNumber('order', 'orders', total) }}</p>
         <form
             v-if="showFilter"
             class="form-inline mb-30 filter-box"
@@ -89,15 +89,15 @@
 
         <div
             v-if="total === 0"
-            class="tomo-empty">
-            <i class="fa fa-exchange tomo-empty__icon"/>
-            <p class="tomo-empty__description">No order found</p>
+            class="wethio-empty">
+            <i class="fa fa-exchange wethio-empty__icon"/>
+            <p class="wethio-empty__description">No order found</p>
         </div>
         <table-base
             v-if="total > 0"
             :fields="fields"
             :items="items"
-            class="tomo-table--orders">
+            class="wethio-table--orders">
             <template
                 slot="hash"
                 slot-scope="props">
@@ -175,7 +175,7 @@
             :per-page="perPage"
             :limit="7"
             align="center"
-            class="tomo-pagination"
+            class="wethio-pagination"
             @change="onChangePaginate"/>
     </section>
 </template>

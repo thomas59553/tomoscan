@@ -1,24 +1,24 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
         <div
             v-if="total == 0"
-            class="tomo-empty">
-            <i class="fa fa-user-secret tomo-empty__icon"/>
-            <p class="tomo-empty__description">No relayer found</p>
+            class="wethio-empty">
+            <i class="fa fa-user-secret wethio-empty__icon"/>
+            <p class="wethio-empty__description">No relayer found</p>
         </div>
 
         <p
             v-if="total > 0"
-            class="tomo-total-items">{{ _nFormatNumber('relayer', 'relayers', total) }}</p>
+            class="wethio-total-items">{{ _nFormatNumber('relayer', 'relayers', total) }}</p>
 
         <table-base
             v-if="total > 0"
             :fields="fields"
             :items="items"
-            class="tomo-table--relayers">
+            class="wethio-table--relayers">
             <template
                 slot="address"
                 slot-scope="props">

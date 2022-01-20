@@ -118,7 +118,7 @@ TokenController.get('/tokens/:slug', [
 })
 
 TokenController.get('/tokens/holding/:tokenType/:holder', [
-    check('tokenType').exists().isString().withMessage('trc20/trc21/trc721'),
+    check('tokenType').exists().isString().withMessage('zrc20/zrc21/trc721'),
     check('holder').exists().isLength({ min: 42, max: 42 }).withMessage('Address holding token'),
     check('limit').optional().isInt({ max: 50 }).withMessage('Limit is less than 50 items per page'),
     check('page').optional().isInt().withMessage('Require page is number')
@@ -132,9 +132,9 @@ TokenController.get('/tokens/holding/:tokenType/:holder', [
 
     try {
         let data
-        if (tokenType === 'trc20') {
+        if (tokenType === 'zrc20') {
             data = await utils.paginate(req, 'TokenHolder', { query: { hash: holder } })
-        } else if (tokenType === 'trc21') {
+        } else if (tokenType === 'zrc21') {
             const dexToken = await dexDb.Token.distinct('contractAddress')
             const listToken = []
             for (let i = 0; i < dexToken.length; i++) {
@@ -196,7 +196,7 @@ TokenController.get('/tokens/holding/:tokenType/:holder', [
                                 .trim()
                             items[i].tokenObj = tokens[j]
 
-                            if (tokenType === 'trc20' || tokenType === 'trc21') {
+                            if (tokenType === 'zrc20' || tokenType === 'zrc21') {
                                 const tk = await TokenHelper.getTokenBalance(
                                     { hash: tokens[j].hash, decimals: tokens[j].decimals }, items[i].hash)
                                 items[i].quantity = tk.quantity
@@ -264,9 +264,9 @@ TokenController.get('/tokens/:token/holder/:holder', [
         if (exist) {
             await tokenHolder.save()
         } else {
-            if (tk && tk.type === 'trc20') {
+            if (tk && tk.type === 'zrc20') {
                 await db.TokenHolder.insertMany([tokenHolder])
-            } else if (tk && tk.type === 'trc21') {
+            } else if (tk && tk.type === 'zrc21') {
                 await db.TokenTrc21Holder.insertMany([tokenHolder])
             }
         }

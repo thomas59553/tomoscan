@@ -2,7 +2,7 @@
     <b-modal
         :id="modalId"
         ref="modalRegister"
-        class="tomo-modal"
+        class="wethio-modal"
         title="Log in"
         @ok="validate"
         @keydown.native.enter="validate">

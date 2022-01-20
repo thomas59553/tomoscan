@@ -1,4 +1,4 @@
-.tomo-table {
+.wethio-table {
   width: 100%;
   margin-bottom: 50px;
 
@@ -139,7 +139,7 @@
   }
 }
 
-.tomo-table--blocks {
+.wethio-table--blocks {
 
   thead tr,
   tbody tr {
@@ -169,7 +169,7 @@
   }
 }
 
-.tomo-table--accounts {
+.wethio-table--accounts {
 
   thead tr,
   tbody tr {
@@ -200,7 +200,7 @@
   }
 }
 
-.tomo-table--tokens {
+.wethio-table--tokens {
 
   td {
     grid-template-columns: 35% auto;
@@ -246,7 +246,7 @@
   }
 }
 
-.tomo-table--tokens-nft {
+.wethio-table--tokens-nft {
 
   td {
     grid-template-columns: 35% auto;
@@ -291,7 +291,7 @@
   }
 }
 
-.tomo-table--transactions {
+.wethio-table--transactions {
 
   i.tx-failed {
     vertical-align: middle;
@@ -334,7 +334,7 @@
   }
 }
 
-.tomo-table--internal-transactions {
+.wethio-table--internal-transactions {
 
   i.tx-failed {
     vertical-align: middle;
@@ -377,7 +377,7 @@
   }
 }
 
-.tomo-table--token-tx {
+.wethio-table--token-tx {
 
   thead tr,
   tbody tr {
@@ -412,7 +412,7 @@
   }
 }
 
-.tomo-table--events {
+.wethio-table--events {
 
   tbody tr {
     padding: 40px 20px 0;
@@ -482,7 +482,7 @@
   }
 }
 
-.tomo-table--holders {
+.wethio-table--holders {
   td {
     grid-template-columns: 40% auto;
   }
@@ -502,7 +502,7 @@
   }
 }
 
-.tomo-table--nft-holders {
+.wethio-table--nft-holders {
   td {
     grid-template-columns: 40% auto;
   }
@@ -522,7 +522,7 @@
   }
 }
 
-.tomo-table--tokens-by-account {
+.wethio-table--tokens-by-account {
   .text-truncate {
     @include media-breakpoint-up(lg) {
       max-width: 100%;
@@ -530,7 +530,7 @@
   }
 }
 
-.tomo-table--follow {
+.wethio-table--follow {
 
   thead tr,
   tbody tr {
@@ -560,7 +560,7 @@
   }
 }
 
-.tomo-table--verified-contract {
+.wethio-table--verified-contract {
   margin-bottom: 20px;
   box-shadow: 8px 8px 40px 0 rgba(0, 0, 0, .07);
 
@@ -616,7 +616,7 @@
   }
 }
 
-.tomo-table--reward {
+.wethio-table--reward {
 
   i.tx-failed {
     vertical-align: middle;
@@ -663,7 +663,7 @@
     }
   }
 }
-.tomo-table--reward-by-epoch {
+.wethio-table--reward-by-epoch {
   thead tr,
   tbody tr {
 
@@ -680,7 +680,7 @@
     }
   }
 }
-.tomo-table--masternode {
+.wethio-table--masternode {
 
   i.tx-failed {
     vertical-align: middle;
@@ -717,7 +717,7 @@
   }
 }
 
-.tomo-table--contracts {
+.wethio-table--contracts {
 
   td {
     grid-template-columns: 35% auto;
@@ -762,51 +762,51 @@
   }
 }
 
-.tomo-table--orders {
+.wethio-table--orders {
   thead tr,
   tbody tr {
     grid-template-columns: 17% 17% 10% 5% 14% 14% 12% 11%;
   }
 }
 
-.tomo-table--lending-orders {
+.wethio-table--lending-orders {
   thead tr,
   tbody tr {
     grid-template-columns: 15% 15% 15% 15% 10% 5% 7% 8% 10%;
   }
 }
-.tomo-table--lending-repay {
+.wethio-table--lending-repay {
   thead tr,
   tbody tr {
     grid-template-columns: 15% 15% 15% 15% 10% 10% 10% 10%;
   }
 }
-.tomo-table--lending-trades {
+.wethio-table--lending-trades {
   thead tr,
   tbody tr {
     grid-template-columns: 15% 15% 15% 13% 17% 10% 7% 8%;
   }
 }
 
-.tomo-table--trades {
+.wethio-table--trades {
   thead tr,
   tbody tr {
     grid-template-columns: 15% 15% 15% 10% 14% 14% 5% 12%;
   }
 }
-.tomo-table--topup {
+.wethio-table--topup {
   thead tr,
   tbody tr {
     grid-template-columns: 15% 15% 15% 15% 15% 10% 15%;
   }
 }
-.tomo-table--relayers {
+.wethio-table--relayers {
   thead tr,
   tbody tr {
     grid-template-columns: 15% 15% 15% 15% 10% 10% 10% 10%;
   }
 }
-.tomo-table--lending-topup, .tomo-table--lending-recalls {
+.wethio-table--lending-topup, .wethio-table--lending-recalls {
   thead tr,
   tbody tr {
     grid-template-columns: 16% 16% 16% 16% 16% 10% 10%;

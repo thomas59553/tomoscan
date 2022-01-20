@@ -1,11 +1,11 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
-        <div class="card tomo-card">
-            <div class="tomo-card__header">
-                <h3 class="tomo-headline">
+        <div class="card wethio-card">
+            <div class="wethio-card__header">
+                <h3 class="wethio-headline">
                     <span class="mr-2">Trade Hash:</span>
                     <read-more
                         :text="hash"
@@ -25,8 +25,8 @@
                     <span class="d-none d-2xl-inline-block">{{ hash }}</span>
                 </h3>
             </div>
-            <div class="tomo-card__body">
-                <table class="tomo-card__table">
+            <div class="wethio-card__body">
+                <table class="wethio-card__table">
                     <tbody>
                         <tr>
                             <td>Trade Hash</td>
@@ -149,7 +149,7 @@
 
         <b-tabs
             ref="allTabs"
-            class="tomo-tabs">
+            class="wethio-tabs">
             <b-tab
                 lazy
                 title="Orders"

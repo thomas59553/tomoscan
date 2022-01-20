@@ -79,25 +79,25 @@ const watch = async () => {
                     }
                     const tokenTx = await db.TokenTx.find({ blockNumber: i })
                     if (tokenTx.length > 0) {
-                        logger.info('Index %s trc20-tx of block %s', tokenTx.length, i)
+                        logger.info('Index %s zrc20-tx of block %s', tokenTx.length, i)
                     }
                     for (let j = 0; j < tokenTx.length; j++) {
                         const tx = tokenTx[j].toJSON()
                         tx.valueNumber = String(tx.valueNumber)
                         delete tx._id
                         delete tx.id
-                        await elastic.indexWithoutId('trc20-tx', tx)
+                        await elastic.indexWithoutId('zrc20-tx', tx)
                     }
-                    const trc21Tx = await db.TokenTrc21Tx.find({ blockNumber: i })
-                    if (trc21Tx.length > 0) {
-                        logger.info('Index %s trc21-tx of block %s', trc21Tx.length, i)
+                    const zrc21Tx = await db.TokenTrc21Tx.find({ blockNumber: i })
+                    if (zrc21Tx.length > 0) {
+                        logger.info('Index %s zrc21-tx of block %s', zrc21Tx.length, i)
                     }
-                    for (let j = 0; j < trc21Tx.length; j++) {
-                        const tx = trc21Tx[j].toJSON()
+                    for (let j = 0; j < zrc21Tx.length; j++) {
+                        const tx = zrc21Tx[j].toJSON()
                         tx.valueNumber = String(tx.valueNumber)
                         delete tx._id
                         delete tx.id
-                        await elastic.indexWithoutId('trc21-tx', tx)
+                        await elastic.indexWithoutId('zrc21-tx', tx)
                     }
                     const nftTx = await db.TokenNftTx.find({ blockNumber: i })
                     if (nftTx.length > 0) {

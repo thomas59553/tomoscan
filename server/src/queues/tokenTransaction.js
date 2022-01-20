@@ -54,27 +54,27 @@ consumer.task = async function (job, done) {
         if (!Number.isInteger(_log.transactionIndex)) {
             _log.transactionIndex = web3.utils.hexToNumber(_log.transactionIndex)
         }
-        if (tokenType === 'trc20' || tokenType === 'trc21') {
+        if (tokenType === 'zrc20' || tokenType === 'zrc21') {
             _log.value = web3.utils.hexToNumberString(log.data)
 
             const vl = new BigNumber(_log.value || 0)
             _log.valueNumber = vl.dividedBy(10 ** parseInt(decimals)).toNumber() || 0
 
             delete _log._id
-            if (tokenType === 'trc20') {
+            if (tokenType === 'zrc20') {
                 await db.TokenTx.updateOne(
                     { transactionHash: transactionHash, from: _log.from, to: _log.to },
                     _log,
                     { upsert: true, new: true })
                 _log.valueNumber = String(_log.valueNumber)
-                await elastic.indexWithoutId('trc20-tx', _log)
+                await elastic.indexWithoutId('zrc20-tx', _log)
             } else {
                 await db.TokenTrc21Tx.updateOne(
                     { transactionHash: transactionHash, from: _log.from, to: _log.to },
                     _log,
                     { upsert: true, new: true })
                 _log.valueNumber = String(_log.valueNumber)
-                await elastic.indexWithoutId('trc21-tx', _log)
+                await elastic.indexWithoutId('zrc21-tx', _log)
             }
 
             // Add token holder data.

@@ -1,25 +1,25 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
 
         <div
             v-if="total == 0"
-            class="tomo-empty">
-            <i class="fa fa-chain-broken tomo-empty__icon"/>
-            <p class="tomo-empty__description">No token found</p>
+            class="wethio-empty">
+            <i class="fa fa-chain-broken wethio-empty__icon"/>
+            <p class="wethio-empty__description">No token found</p>
         </div>
 
         <p
             v-if="total > 0"
-            class="tomo-total-items">{{ _nFormatNumber('token', 'tokens', total) }}</p>
+            class="wethio-total-items">{{ _nFormatNumber('token', 'tokens', total) }}</p>
 
         <table-base
             v-if="total > 0"
             :fields="fields"
             :items="items"
-            class="tomo-table--tokens-nft">
+            class="wethio-table--tokens-nft">
 
             <template
                 slot="hash"
@@ -55,7 +55,7 @@
             :number-of-pages="pages"
             :limit="7"
             align="center"
-            class="tomo-pagination"
+            class="wethio-pagination"
             @change="onChangePaginate"/>
     </section>
 </template>
@@ -85,8 +85,8 @@ export default {
     mounted () {
         // Init breadcrumbs data.
         this.$store.commit('breadcrumb/setItems', {
-            name: 'tokens-trc21',
-            to: { name: 'tokens-trc21' }
+            name: 'tokens-zrc21',
+            to: { name: 'tokens-zrc21' }
         })
 
         this.getDataFromApi()
@@ -101,7 +101,7 @@ export default {
             const params = {
                 page: self.currentPage,
                 limit: self.perPage,
-                type: 'trc21'
+                type: 'zrc21'
             }
 
             const query = this.serializeQuery(params)

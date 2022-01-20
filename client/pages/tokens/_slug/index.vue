@@ -1,11 +1,11 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
-        <div class="card tomo-card tomo-card--token">
-            <div class="tomo-card__header">
-                <h2 class="tomo-card__headline">
+        <div class="card wethio-card wethio-card--token">
+            <div class="wethio-card__header">
+                <h2 class="wethio-card__headline">
                     <img
                         v-if="checkAvatarExist(tokenBranch, hash)"
                         :src="`https://raw.githubusercontent.com/tomochain/tokens/${tokenBranch}/tokens/${hash}.png`"
@@ -17,7 +17,7 @@
                     aria-hidden="true"/>
                 <h6 class="mb-0">{{ symbol }}</h6>
             </div>
-            <div class="tomo-card__body">
+            <div class="wethio-card__body">
                 <div
                     v-if="isPhising"
                     class="alert alert-danger">
@@ -27,7 +27,7 @@
                     <b-col md="6">
                         <table
                             v-if="token"
-                            class="tomo-card__table">
+                            class="wethio-card__table">
                             <tbody>
                                 <tr>
                                     <td>Total Supply</td>
@@ -66,7 +66,7 @@
                     <b-col md="6">
                         <table
                             v-if="token"
-                            class="tomo-card__table">
+                            class="wethio-card__table">
                             <tbody>
                                 <tr>
                                     <td>Contract</td>
@@ -143,14 +143,14 @@
                 <b-tabs
                     ref="allTabs"
                     v-model="tabIndex"
-                    class="tomo-tabs">
+                    class="wethio-tabs">
                     <!--:title="'Token Transfers (' + formatNumber(tokenTxsCount) + ')'"-->
                     <b-tab
                         lazy
                         title="Token Transfers"
                         href="#tokenTransfers">
                         <table-token-tx
-                            v-if="token.type === 'trc20'"
+                            v-if="token.type === 'zrc20'"
                             :token="hash"
                             :parent="'#tokenTransfers'"
                             :page="this"/>
@@ -159,8 +159,8 @@
                             :token="hash"
                             :parent="'#tokenTransfers'"
                             :page="this"/>
-                        <table-token-tx-trc21
-                            v-if="token.type === 'trc21'"
+                        <table-token-tx-zrc21
+                            v-if="token.type === 'zrc21'"
                             :token="hash"
                             :parent="'#tokenTransfers'"
                             :page="this"/>
@@ -171,7 +171,7 @@
                         title="Token Holders"
                         href="#tokenHolders">
                         <table-token-holder
-                            v-if="token.type === 'trc20'"
+                            v-if="token.type === 'zrc20'"
                             :address="hash"
                             :parent="'#tokenHolders'"
                             :page="this"/>
@@ -180,8 +180,8 @@
                             :address="hash"
                             :parent="'#tokenHolders'"
                             :page="this"/>
-                        <table-token-trc21-holder
-                            v-if="token.type === 'trc21'"
+                        <table-token-zrc21-holder
+                            v-if="token.type === 'zrc21'"
                             :address="hash"
                             :parent="'#tokenHolders'"
                             :page="this"/>

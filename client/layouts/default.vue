@@ -3,20 +3,20 @@
         <b-navbar
             toggleable="lg"
             variant="white"
-            class="tomo-nav">
-            <div class="container container--wide tomo-nav__wrapper">
+            class="wethio-nav">
+            <div class="container container--wide wethio-nav__wrapper">
                 <b-navbar-brand :to="{name: 'index'}">
                     <img
                         src="~/assets/img/logoLight.svg"
                         alt="TomoScan"
-                        class="tomo-nav__logo logo-light">
+                        class="wethio-nav__logo logo-light">
                     <img
                         src="~/assets/img/logoDark.svg"
                         alt="TomoScan"
-                        class="tomo-nav__logo logo-dark">
+                        class="wethio-nav__logo logo-dark">
                 </b-navbar-brand>
                 <b-navbar-toggle
-                    class="tomo-nav__toggle"
+                    class="wethio-nav__toggle"
                     target="nav_collapse">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -58,10 +58,10 @@
                         <b-nav-item-dropdown
                             :class="(isTokens || isTokenTxs) ? 'active' : ''"
                             text="Tokens">
-                            <b-dropdown-item :to="{name: 'tokens-trc20'}">TRC20 Tokens</b-dropdown-item>
-                            <b-dropdown-item :to="{name: 'tokentxs'}">TRC20 Transfers</b-dropdown-item>
-                            <b-dropdown-item :to="{name: 'tokens-trc21'}">TRC21 Tokens</b-dropdown-item>
-                            <b-dropdown-item :to="{name: 'tokentxs-trc21'}">TRC21 Transfers</b-dropdown-item>
+                            <b-dropdown-item :to="{name: 'tokens-zrc20'}">ZRC20 Tokens</b-dropdown-item>
+                            <b-dropdown-item :to="{name: 'tokentxs'}">ZRC20 Transfers</b-dropdown-item>
+                            <b-dropdown-item :to="{name: 'tokens-zrc21'}">ZRC21 Tokens</b-dropdown-item>
+                            <b-dropdown-item :to="{name: 'tokentxs-zrc21'}">ZRC21 Transfers</b-dropdown-item>
                             <b-dropdown-item :to="{name: 'tokens-nft'}">TRC721 Tokens</b-dropdown-item>
                             <b-dropdown-item :to="{name: 'tokentxs-nft'}">TRC721 Transfers</b-dropdown-item>
                         </b-nav-item-dropdown>
@@ -95,9 +95,9 @@
                             </li>
                         </b-nav-item-dropdown>
                     </b-navbar-nav>
-                    <b-navbar-nav class="tomo-nav__login">
+                    <b-navbar-nav class="wethio-nav__login">
                         <b-nav-item
-                            :href="'https://docs.tomochain.com/faq/products/tomochain-applications/tomoscan-explorer'"
+                            :href="'https://docs.wethio.io/faq/products/tomochain-applications/wethioscan-explorer'"
                             :target="'_blank'">Need help?</b-nav-item>
                             <!-- <b-nav-item
                             v-b-modal="'loginModal'"
@@ -134,12 +134,12 @@
         </b-navbar>
 
         <main
-            :class="isHomePage ? 'tomo-body-wrapper--home' : ''"
-            class="tomo-body-wrapper">
+            :class="isHomePage ? 'wethio-body-wrapper--home' : ''"
+            class="wethio-body-wrapper">
             <div class="container container--wide">
                 <div
                     v-if="! isHomePage"
-                    class="row align-items-center tomo-body-wrapper__heading">
+                    class="row align-items-center wethio-body-wrapper__heading">
                     <b-col sm="5">
                         <breadcrumb/>
                     </b-col>
@@ -176,36 +176,36 @@
                                 placeholder="Search Address / TX / Block..."
                                 @keyup.enter="onGotoRoute">
                         </div>
-                        <div class="tomo-stat d-flex">
-                            <div class="tomo-stat__item">
+                        <div class="wethio-stat d-flex">
+                            <div class="wethio-stat__item">
                                 <nuxt-link :to="{name: 'accounts'}">
                                     <i
                                         v-if="! stats"
-                                        class="tomo-loading"/>
+                                        class="wethio-loading"/>
                                     <span v-else>{{ formatNumber(stats.totalAddress) }}&nbsp;Accounts</span>
                                 </nuxt-link>
                             </div>
-                            <div class="tomo-stat__item">
+                            <div class="wethio-stat__item">
                                 <nuxt-link :to="{name: 'tokens'}">
                                     <i
                                         v-if="! stats"
-                                        class="tomo-loading"/>
+                                        class="wethio-loading"/>
                                     <span v-else>{{ formatNumber(stats.totalToken) }}&nbsp;Tokens</span>
                                 </nuxt-link>
                             </div>
-                            <div class="tomo-stat__item">
+                            <div class="wethio-stat__item">
                                 <nuxt-link :to="{name: 'contracts'}">
                                     <i
                                         v-if="! stats"
-                                        class="tomo-loading"/>
+                                        class="wethio-loading"/>
                                     <span v-else>{{ formatNumber(stats.totalSmartContract) }}&nbsp;Contracts</span>
                                 </nuxt-link>
                             </div>
-                            <div class="tomo-stat__item">
+                            <div class="wethio-stat__item">
                                 <nuxt-link :to="{name: 'blocks'}">
                                     <i
                                         v-if="! stats"
-                                        class="tomo-loading"/>
+                                        class="wethio-loading"/>
                                     <span v-else>{{ formatNumber(stats.totalBlock) }}&nbsp;Blocks</span>
                                 </nuxt-link>
                             </div>
@@ -216,14 +216,14 @@
             </div>
         </main>
 
-        <footer class="tomo-footer">
+        <footer class="wethio-footer">
             <div class="container container--wide">
                 <div class="row">
                     <b-col
                         md="6"
-                        class="tomo-footer__copyright">
+                        class="wethio-footer__copyright">
                         <p>TomoScan {{ (new Date()).getFullYear() }} - <a
-                            :href="`https://github.com/tomochain/tomoscan/releases/tag/v${version}`">
+                            :href="`https://github.com/tomochain/wethioscan/releases/tag/v${version}`">
                             v{{ version }}</a>
 
                             <code class="text-muted copyright__code">
@@ -234,7 +234,7 @@
                     <b-col
                         md="6"
                         class="text-md-right">
-                        <ul class="list-inline tomo-footer__social">
+                        <ul class="list-inline wethio-footer__social">
                             <li class="list-inline-item">
                                 <a
                                     href="https://t.me/tomochain"
@@ -348,9 +348,9 @@ export default {
             self.getStats()
         }
 
-        self.darkMode = Cookie.get('tomoscan_theme') === 'dark'
+        self.darkMode = Cookie.get('wethioscan_theme') === 'dark'
 
-        if (typeof Cookie.get('tomoscan_theme') === 'undefined') {
+        if (typeof Cookie.get('wethioscan_theme') === 'undefined') {
             document.getElementById('dark-mode-toggle').classList.add('try-dark-mode')
         }
     },
@@ -391,10 +391,10 @@ export default {
             self.stats = data.stats
         },
         toggleDarkMode (e) {
-            const darkMode = Cookie.get('tomoscan_theme') !== 'dark'
+            const darkMode = Cookie.get('wethioscan_theme') !== 'dark'
             this.darkMode = darkMode
 
-            Cookie.set('tomoscan_theme', darkMode ? 'dark' : 'light', {
+            Cookie.set('wethioscan_theme', darkMode ? 'dark' : 'light', {
                 expires: 365
             })
 

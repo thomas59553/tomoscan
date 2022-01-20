@@ -1,11 +1,11 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
-        <div class="card tomo-card tomo-card--token">
-            <div class="tomo-card__header">
-                <h2 class="tomo-card__headline">
+        <div class="card wethio-card wethio-card--token">
+            <div class="wethio-card__header">
+                <h2 class="wethio-card__headline">
                     <img
                         v-if="checkAvatarExist(tokenBranch, hash)"
                         :src="`https://raw.githubusercontent.com/tomochain/tokens/${tokenBranch}/tokens/${hash}.png`"
@@ -17,12 +17,12 @@
                     aria-hidden="true"/>
                 <h6 class="mb-0">{{ symbol }}</h6>
             </div>
-            <div class="tomo-card__body">
+            <div class="wethio-card__body">
                 <b-row>
                     <b-col md="6">
                         <table
                             v-if="token"
-                            class="tomo-card__table">
+                            class="wethio-card__table">
                             <tbody>
                                 <tr>
                                     <td>Holder</td>
@@ -63,7 +63,7 @@
                     <b-col md="6">
                         <table
                             v-if="token"
-                            class="tomo-card__table">
+                            class="wethio-card__table">
                             <tbody>
                                 <tr>
                                     <td>Contract</td>
@@ -133,12 +133,12 @@
 
         <b-row>
             <b-col>
-                <b-tabs class="tomo-tabs">
+                <b-tabs class="wethio-tabs">
                     <!--:title="'Token Transfers (' + formatNumber(tokenTxsCount) + ')'"-->
                     <b-tab
                         lazy
                         title="Token Transfers">
-                        <table-token-tx-trc21
+                        <table-token-tx-zrc21
                             :token="hash"
                             :holder="holder"
                             :page="this"/>
@@ -238,7 +238,7 @@ export default {
     },
     head () {
         return {
-            title: 'Token TRC21 Holder Info'
+            title: 'Token ZRC21 Holder Info'
         }
     }
 }

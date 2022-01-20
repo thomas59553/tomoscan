@@ -1,9 +1,9 @@
 <template>
-    <p :class="'tomo-readmore' + (isReadMore ? ' tomo-readmore--is-open' : '')">
+    <p :class="'wethio-readmore' + (isReadMore ? ' wethio-readmore--is-open' : '')">
         <span class="mr-1">{{ formattedString }}</span>
         <span
             v-show="text.length > maxChars"
-            class="tomo-readmore__toggle">
+            class="wethio-readmore__toggle">
             <a
                 v-show="!isReadMore"
                 :href="link"

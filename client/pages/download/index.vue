@@ -1,17 +1,17 @@
 <template>
     <div
         v-if="loading"
-        :class="(loading ? 'tomo-loading tomo-loading--full' : '')"/>
+        :class="(loading ? 'wethio-loading wethio-loading--full' : '')"/>
     <section v-else>
-        <div class="card tomo-card tomo-card--verify">
-            <div class="tomo-card__header">
-                <h3 class="tomo-card__headline">Download Data</h3>
+        <div class="card wethio-card wethio-card--verify">
+            <div class="wethio-card__header">
+                <h3 class="wethio-card__headline">Download Data</h3>
                 <p>The information you requested can be downloaded from this page.
                     Export the earliest 1000 records.</p>
             </div>
-            <div class="tomo-card__body">
+            <div class="wethio-card__body">
                 <form
-                    :class="loadingForm ? 'tomo-loading tomo-loading--form' : ''"
+                    :class="loadingForm ? 'wethio-loading wethio-loading--form' : ''"
                     novalidate
                     @submit.prevent="onSubmit">
                     <div class="row">
