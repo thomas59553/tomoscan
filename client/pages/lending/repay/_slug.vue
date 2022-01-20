@@ -83,7 +83,7 @@
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingRepay.lendingToken.toLowerCase()}}">
                                     {{ lendingRepay.lendingToken.toLowerCase() }}</nuxt-link>
-                                <span v-else>TOMO</span>
+                                <span v-else>ZYN</span>
                             </td>
                         </tr>
                         <tr>
@@ -94,7 +94,7 @@
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingRepay.collateralToken.toLowerCase()}}">
                                     {{ lendingRepay.collateralToken.toLowerCase() }}</nuxt-link>
-                                <span v-else>TOMO</span>
+                                <span v-else>ZYN</span>
                             </td>
                         </tr>
                         <tr>
@@ -106,7 +106,7 @@
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingRepay.lendingToken.toLowerCase()}}">
                                     {{ lendingRepay.lendingSymbol }}</nuxt-link>
-                                <span v-else>TOMO</span>
+                                <span v-else>ZYN</span>
                             </td>
                         </tr>
                         <tr>
@@ -157,7 +157,7 @@ export default {
             hash: null,
             lendingRepay: {},
             loading: true,
-            tomoNativeToken: process.env.TOMO_NATIVE_TOKEN
+            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {

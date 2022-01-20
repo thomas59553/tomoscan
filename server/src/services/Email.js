@@ -11,7 +11,7 @@ class EmailService {
             return false
         }
 
-        return this.send('register.html', user.email, 'Welcome to TomoScan', {
+        return this.send('register.html', user.email, 'Welcome to WethioScan', {
             name: user.email
         })
     }
@@ -21,9 +21,9 @@ class EmailService {
 
         let subject = ''
         if (type === 'received') {
-            subject = 'TOMO received at ' + address
+            subject = 'ZYN received at ' + address
         } else {
-            subject = 'TOMO sent at ' + address
+            subject = 'ZYN sent at ' + address
         }
 
         return this.send('follow.html', user.email, subject, {

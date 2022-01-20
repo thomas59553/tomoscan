@@ -169,7 +169,7 @@ export default {
             order: {},
             loading: true,
             avgPrice: 'N/A',
-            tomoNativeToken: process.env.TOMO_NATIVE_TOKEN
+            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {

@@ -175,7 +175,7 @@ export default {
             hash: null,
             trade: {},
             loading: true,
-            tomoNativeToken: process.env.TOMO_NATIVE_TOKEN
+            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {

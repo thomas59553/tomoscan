@@ -8,11 +8,11 @@
                 <b-navbar-brand :to="{name: 'index'}">
                     <img
                         src="~/assets/img/logoLight.svg"
-                        alt="TomoScan"
+                        alt="WethioScan"
                         class="wethio-nav__logo logo-light">
                     <img
                         src="~/assets/img/logoDark.svg"
-                        alt="TomoScan"
+                        alt="WethioScan"
                         class="wethio-nav__logo logo-dark">
                 </b-navbar-brand>
                 <b-navbar-toggle
@@ -222,7 +222,7 @@
                     <b-col
                         md="6"
                         class="wethio-footer__copyright">
-                        <p>TomoScan {{ (new Date()).getFullYear() }} - <a
+                        <p>WethioScan {{ (new Date()).getFullYear() }} - <a
                             :href="`https://github.com/tomochain/wethioscan/releases/tag/v${version}`">
                             v{{ version }}</a>
 

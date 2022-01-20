@@ -15,7 +15,7 @@
             <div
                 style="margin-top: 10px">
                 <strong>
-                    Method 2(easier): Using QR code scanning feature in TomoWallet to sign
+                    Method 2(easier): Using QR code scanning feature in WethioWallet to sign
                 </strong>
             </div>
             <div

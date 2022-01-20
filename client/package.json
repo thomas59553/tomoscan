@@ -1,7 +1,7 @@
 {
   "name": "wethioscan",
   "version": "1.7.1",
-  "description": "TomoScan - TomoChain Block Explorer",
+  "description": "WethioScan - TomoChain Block Explorer",
   "scripts": {
     "lint": "eslint --cache ./ --ext .vue --ext .js --env mocha",
     "lint-fix": "eslint --cache ./ --ext .vue --ext .js --env mocha --fix",

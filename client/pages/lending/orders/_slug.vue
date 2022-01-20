@@ -100,7 +100,7 @@
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingOrder.lendingToken.toLowerCase()}}">
                                     {{ lendingOrder.lendingToken.toLowerCase() }}</nuxt-link>
-                                <span v-else>TOMO</span>
+                                <span v-else>ZYN</span>
                             </td>
                         </tr>
                         <tr v-if="lendingOrder.side === 'BORROW'">
@@ -111,7 +111,7 @@
                                     :to="{name: 'tokens-slug',
                                           params: {slug: lendingOrder.collateralToken.toLowerCase()}}">
                                     {{ lendingOrder.collateralToken.toLowerCase() }}</nuxt-link>
-                                <span v-else>TOMO</span>
+                                <span v-else>ZYN</span>
                             </td>
                         </tr>
                         <tr>
@@ -119,7 +119,7 @@
                             <td>
                                 {{ formatNumber(lendingOrder.quantity) }}
                                 {{ lendingOrder.lendingSymbol !== tomoNativeToken ?
-                                    lendingOrder.lendingSymbol : 'TOMO' }}
+                                    lendingOrder.lendingSymbol : 'ZYN' }}
                             </td>
                         </tr>
                         <tr>
@@ -131,7 +131,7 @@
                             <td>
                                 {{ formatNumber(lendingOrder.filledAmount) }}
                                 {{ lendingOrder.lendingSymbol !== tomoNativeToken ?
-                                    lendingOrder.lendingSymbol : 'TOMO' }}
+                                    lendingOrder.lendingSymbol : 'ZYN' }}
                             </td>
                         </tr>
                         <tr
@@ -191,7 +191,7 @@ export default {
             hash: null,
             lendingOrder: {},
             loading: true,
-            tomoNativeToken: process.env.TOMO_NATIVE_TOKEN
+            tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
         }
     },
     created () {

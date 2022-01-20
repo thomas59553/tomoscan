@@ -200,7 +200,7 @@ export default {
         baseToken: '',
         quoteToken: '',
         relayerAddress: '',
-        tomoNativeToken: process.env.TOMO_NATIVE_TOKEN
+        tomoNativeToken: process.env.WETHIO_NATIVE_TOKEN
     }),
     async created () {
         if (this.$route.query.user) {

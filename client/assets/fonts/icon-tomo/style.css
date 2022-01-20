@@ -1,17 +1,17 @@
 @font-face {
-  font-family: 'icon-tomo';
-  src:  url('fonts/icon-tomo.eot?vtktip');
-  src:  url('fonts/icon-tomo.eot?vtktip#iefix') format('embedded-opentype'),
-    url('fonts/icon-tomo.ttf?vtktip') format('truetype'),
-    url('fonts/icon-tomo.woff?vtktip') format('woff'),
-    url('fonts/icon-tomo.svg?vtktip#icon-tomo') format('svg');
+  font-family: 'icon-wethio';
+  src:  url('fonts/icon-wethio.eot?vtktip');
+  src:  url('fonts/icon-wethio.eot?vtktip#iefix') format('embedded-opentype'),
+    url('fonts/icon-wethio.ttf?vtktip') format('truetype'),
+    url('fonts/icon-wethio.woff?vtktip') format('woff'),
+    url('fonts/icon-wethio.svg?vtktip#icon-wethio') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="tm-"], [class*=" tm-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icon-tomo' !important;
+  font-family: 'icon-wethio' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;

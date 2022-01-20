@@ -47,7 +47,7 @@
                         class="form-control">
                 </div>
                 <p>You can monitor and receive an alert when an address
-                    on your follow list receives an incoming TOMO Transaction.</p>
+                    on your follow list receives an incoming ZYN Transaction.</p>
                 <div class="form-group">
                     <div class="wethio-toggle">
                         <input

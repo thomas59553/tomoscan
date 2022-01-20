@@ -1,7 +1,7 @@
 {
   "APP_ENV": "prod",
   "MONGODB_URI": "mongodb://mongo:27017/wethioscan",
-  "MONGODB_DEX_URI": "mongodb://mongo:27017/tomodex",
+  "MONGODB_DEX_URI": "mongodb://mongo:27017/wethiodex",
   "ELASTICSEARCH": "http://localhost:9200",
   "GetDataFromElasticSearch": true,
   "MaxBlockIndex": 150000,
@@ -9,7 +9,7 @@
     "host": "redis",
     "port": 6379,
     "password": null,
-    "prefix": "TomoScan"
+    "prefix": "WethioScan"
   },
   "logs": {
     "level": "debug"
@@ -21,7 +21,7 @@
   "WEB3_WS_URI": "wss://ws.wethio.io",
   "DEBUG_QUERY": false,
 
-  "BASE_UNIT": "TOMO",
+  "BASE_UNIT": "ZYN",
   "PORT": 3333,
   "DEBUG": "express:*",
 
